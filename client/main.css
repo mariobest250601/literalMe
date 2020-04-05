@@ -2,3 +2,17 @@ body {
   padding: 10px;
   font-family: sans-serif;
 }
+
+.pic{
+	width:100%;
+ 	height:100%;
+ 	
+}
+
+.icolor{
+	color:black;
+}
+
+.uniform{
+	overflow: hidden;
+}

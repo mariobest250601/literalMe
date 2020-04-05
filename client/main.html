@@ -49,63 +49,187 @@
       <h1 class="jumbotron-heading">literalMe</h1>
       <p class="lead text-muted">Glad you found your way here. It's always a good time to read a book. Find your passion amongst the stars by choosing from our many categories tailored just for you.</p>
       <p>
-        <a href="#" class="btn btn-primary my-2">Top Rated Book</a>
+        <a href="#" class="btn btn-primary my-2">Top Rated 
+        Book</a>
+
+       
+          <div class="row">
+          <div class="col">
+
+          
+            
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary js-Show" data-toggle="modal" data-target="#Addbk">
+             Add Book
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="Addbk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please Add your book</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                        </button>
+                  </div>
+                <div class="modal-body">
+
+                  <img class="placeholder" src="placeholder.jpg" alt="">
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="Title">Title</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                        <!-- title -->
+
+                        <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="Author">Author</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                        <!-- title -->
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"> place your path here</span>
+                          </div>
+                            <input type="text" class="form-control" id="Path" aria-describedby="basic-addon3">
+                          </div>
+                       <!-- link  -->  
+
+
+                       <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span  class="input-group-text">Description</span>
+                          </div>
+                          <textarea id="Desc" class="form-control" aria-label="With textarea"></textarea>
+                          </div>
+
+                </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary js-close" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary js-save">Save changes</button>
+                    </div>
+                  </div>
+                    </div>
+                  </div>
+          
+        
+          </div>
+        </div>
+
+        
+        
+       
+            
+       
       </p>
     </div>
   </section>
 </template>
 
+<template name="myBooks">
+  
+  {{#each allBooks}} 
+  
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm"> 
+            <div class=" uniform">
+              <img class="pic" src="{{Path}}" alt=""  id={{_id}}> 
+            </div> 
+              <div class="card-body">
+                <p class="card-text"> 
+
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary js-edit" data-toggle="modal" data-target="#Editbk">Edit</button>
+
+                         <div class="modal fade" id="Editbk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please Add your book</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                        </button>
+                  </div>
+                <div class="modal-body"> <!-- Edit modal -->
+
+                  <img class="Editplaceholder" src="placeholder.jpg" alt="">
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="EditTitle">Title</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                        <!-- title -->
+
+                        <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="EditAuthor">Author</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                        <!-- Author -->
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"> place your path here</span>
+                          </div>
+                            <input type="text" class="form-control" id="EditPath" aria-describedby="basic-addon3">
+                          </div>
+                       <!-- link  -->  
+
+
+                       <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span  class="input-group-text">Description</span>
+                          </div>
+                          <textarea id="EditDesc" class="form-control" aria-label="With textarea"></textarea>
+                          </div>
+
+                </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary js-close" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary js-update">Save changes</button>
+                    </div>
+                  </div>
+                    </div>
+                  </div>
+                      
+
+
+
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                  <i class="fa fa-trash icolor js-delete"></i>
+                </div>
+              </div>
+          </div> <!-- /col -->
+      
+      
+     </div>
+    {{/each}}
+    
+ </template>
+
+
+
 <template name="mainBody">
   <main role="main">
     {{> myJumbo}}
-    <div class="album py-5 bg-light">
+
+      <div class="album py-5 bg-light">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img src='data:image/svg+xml;charset=UTF-8,<svg%20width%3D"348"%20height%3D"225"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewBox%3D"0%200%20348%20225"%20preserveAspectRatio%3D"none"><defs><style%20type%3D"text%2Fcss">%23holder_1697acec537%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20<%2Fstyle><%2Fdefs><g%20id%3D"holder_1697acec537"><rect%20width%3D"348"%20height%3D"225"%20fill%3D"%2355595c"><%2Frect><g><text%20x%3D"116.7265625"%20y%3D"120.3">Thumbnail<%2Ftext><%2Fg><%2Fg><%2Fsvg>' alt="temp photo">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div> <!-- /col -->
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img src='data:image/svg+xml;charset=UTF-8,<svg%20width%3D"348"%20height%3D"225"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewBox%3D"0%200%20348%20225"%20preserveAspectRatio%3D"none"><defs><style%20type%3D"text%2Fcss">%23holder_1697acec537%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20<%2Fstyle><%2Fdefs><g%20id%3D"holder_1697acec537"><rect%20width%3D"348"%20height%3D"225"%20fill%3D"%2355595c"><%2Frect><g><text%20x%3D"116.7265625"%20y%3D"120.3">Thumbnail<%2Ftext><%2Fg><%2Fg><%2Fsvg>' alt="temp photo">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div> <!-- /col -->
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img src='data:image/svg+xml;charset=UTF-8,<svg%20width%3D"348"%20height%3D"225"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewBox%3D"0%200%20348%20225"%20preserveAspectRatio%3D"none"><defs><style%20type%3D"text%2Fcss">%23holder_1697acec537%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20<%2Fstyle><%2Fdefs><g%20id%3D"holder_1697acec537"><rect%20width%3D"348"%20height%3D"225"%20fill%3D"%2355595c"><%2Frect><g><text%20x%3D"116.7265625"%20y%3D"120.3">Thumbnail<%2Ftext><%2Fg><%2Fg><%2Fsvg>' alt="temp photo">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div> <!-- /col -->
+         {{> myBooks}}
         </div> <!-- /row for all cards -->
       </div>
     </div>
