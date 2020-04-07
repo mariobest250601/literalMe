@@ -79,17 +79,17 @@
 
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="Title">Title</span>
+                        <span class="input-group-text" >Title</span>
                       </div>
-                      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                      <input type="text" class="form-control" id="Title" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
                         <!-- title -->
 
                         <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="Author">Author</span>
+                        <span class="input-group-text" >Author</span>
                       </div>
-                      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                      <input type="text" class="form-control" id="Author" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
                         <!-- title -->
 
@@ -138,19 +138,37 @@
   
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm"> 
-            <div class=" uniform">
-              <img class="pic" src="{{Path}}" alt=""  id={{_id}}> 
-            </div> 
+            <div >
+              <img class="pic " src="{{Path}}" alt=""  id={{_id}}> 
+            </div>
               <div class="card-body">
-                <p class="card-text"> 
-
-                </p>
+                <h5 class="card-title">{{Title}} </h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{Author}}</h6>
+                
+                {{>viewD}}
+                {{>Edit}}
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <!-- Button trigger modal for view -->
+                    <button type="button" class="btn btn-sm btn-outline-secondary js-view">View</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary js-edit" data-toggle="modal" data-target="#Editbk">Edit</button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                  <i class="fa fa-thumbs-up blue"></i>
+                  <i class="fa fa-thumbs-down red"></i>
+                  <i class="fa fa-trash icolor js-delete"></i>
+                </div>
+              </div>
+          </div> <!-- /col -->
+      
+      
+     </div>
+    {{/each}}
+    
+ </template>
 
-                         <div class="modal fade" id="Editbk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <template name="Edit">
+    <div class="modal fade" id="Editbk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -165,17 +183,17 @@
 
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="EditTitle">Title</span>
+                        <span class="input-group-text" >Title</span>
                       </div>
-                      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                      <input type="text" class="form-control" id="EditTitle" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
                         <!-- title -->
 
                         <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="EditAuthor">Author</span>
+                        <span class="input-group-text" >Author</span>
                       </div>
-                      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                      <input type="text" class="form-control" id="EditAuthor" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
                         <!-- Author -->
 
@@ -198,7 +216,7 @@
                 </div>
                <div class="modal-footer">
                  <button type="button" class="btn btn-secondary js-close" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary js-update">Save changes</button>
+                  <button type="button" class="btn btn-primary js-UpdateImage">Save changes</button>
                     </div>
                   </div>
                     </div>
@@ -207,18 +225,37 @@
 
 
 
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                  <i class="fa fa-trash icolor js-delete"></i>
-                </div>
-              </div>
-          </div> <!-- /col -->
-      
-      
-     </div>
-    {{/each}}
-    
+
  </template>
+
+
+<template name="viewD">
+
+  
+
+<!-- Modal -->
+<div class="modal fade" id="viewM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 id="viewcontent"> </h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+</template>
+
 
 
 

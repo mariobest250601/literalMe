@@ -16,3 +16,11 @@ body {
 .uniform{
 	overflow: hidden;
 }
+
+.red{
+	color:red;
+}
+
+.blue{
+	color:blue;
+}
